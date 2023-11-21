@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KarteiboxService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">karteikarten-app</a> &gt; <a href="index.source.html" class="el_package">com.lernkartenapp.service</a> &gt; <span class="el_source">KarteiboxService.java</span></div><h1>KarteiboxService.java</h1><pre class="source lang-java linenums">package com.lernkartenapp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lernkartenapp.model.Karteibox;
+import com.lernkartenapp.model.Karteikarte;
+import com.lernkartenapp.repository.KarteiboxRepository;
+import com.lernkartenapp.repository.KarteikarteRepository;
+
+import java.util.List;
+
+@Service
+<span class="fc" id="L14">public class KarteiboxService {</span>
+    @Autowired
+    private KarteiboxRepository karteiboxRepository;
+    @Autowired
+    private KarteikarteService karteikarteService;
+    @Autowired
+    private KarteikarteRepository karteikarteRepository;
+    
+    public Karteibox createKarteibox(Karteibox karteibox) {
+<span class="fc" id="L23">        return karteiboxRepository.save(karteibox);</span>
+    }
+
+    public List&lt;Karteibox&gt; getKarteiboxenByUser(String userId) {
+<span class="fc" id="L27">        return karteiboxRepository.findAllByUserId(userId);</span>
+    }
+    
+    public void deleteKarteiboxenByUser(String userId) {
+<span class="fc" id="L31">        List&lt;Karteibox&gt; karteiboxen = karteiboxRepository.findAllByUserId(userId);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (Karteibox karteibox : karteiboxen) {</span>
+<span class="fc" id="L33">            karteikarteService.deleteKarteikartenByKarteibox(karteibox.getId()); // Lösche zuerst die Karteikarten der Karteibox</span>
+<span class="fc" id="L34">            karteiboxRepository.delete(karteibox);</span>
+<span class="fc" id="L35">        }</span>
+<span class="fc" id="L36">    }</span>
+
+    public void deleteKarteibox(String karteiboxId) {
+<span class="fc" id="L39">        karteikarteService.deleteKarteikartenByKarteibox(karteiboxId);</span>
+<span class="fc" id="L40">        karteiboxRepository.deleteById(karteiboxId);</span>
+<span class="fc" id="L41">    }</span>
+
+    public double calculateProgress(String karteiboxId) {
+<span class="fc" id="L44">        List&lt;Karteikarte&gt; karteikarten = karteikarteRepository.findAllByKarteiboxId(karteiboxId);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (karteikarten.isEmpty()) {</span>
+<span class="fc" id="L46">            return 0.0;</span>
+        }
+
+<span class="fc" id="L49">        long knownCards = karteikarten.stream().filter(Karteikarte::getKnown).count();</span>
+<span class="fc" id="L50">        return (double) knownCards / karteikarten.size() * 100;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

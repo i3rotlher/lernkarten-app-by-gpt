@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KarteikarteController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">karteikarten-app</a> &gt; <a href="index.source.html" class="el_package">com.lernkartenapp.controller</a> &gt; <span class="el_source">KarteikarteController.java</span></div><h1>KarteikarteController.java</h1><pre class="source lang-java linenums">package com.lernkartenapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.lernkartenapp.model.Karteikarte;
+import com.lernkartenapp.service.KarteikarteService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/karteikarten&quot;)
+<span class="fc" id="L14">public class KarteikarteController {</span>
+    @Autowired
+    private KarteikarteService karteikarteService;
+
+    @PostMapping(&quot;/&quot;)
+    public Karteikarte createKarteikarte(@RequestBody Karteikarte karteikarte) {
+<span class="fc" id="L20">        return karteikarteService.createKarteikarte(karteikarte);</span>
+    }
+
+    @GetMapping(&quot;/karteibox/{karteiboxId}&quot;)
+    public List&lt;Karteikarte&gt; getKarteikartenByKarteibox(@PathVariable String karteiboxId) {
+<span class="fc" id="L25">        return karteikarteService.getKarteikartenByKarteibox(karteiboxId);</span>
+    }
+    
+    @DeleteMapping(&quot;/{karteikarteId}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteKarteikarte(@PathVariable String karteikarteId) {
+<span class="fc" id="L30">        karteikarteService.deleteKarteikarte(karteikarteId);</span>
+<span class="fc" id="L31">        return ResponseEntity.ok().build();</span>
+    }
+
+    @PostMapping(&quot;/{karteikarteId}/markAsKnown&quot;)
+    public ResponseEntity&lt;Karteikarte&gt; markCardAsKnown(@PathVariable String karteikarteId) {
+<span class="fc" id="L36">        Karteikarte updatedKarteikarte = karteikarteService.markCardAsKnown(karteikarteId);</span>
+<span class="fc" id="L37">        return ResponseEntity.ok(updatedKarteikarte);</span>
+    }
+
+    @PutMapping(&quot;/{karteikarteId}&quot;)
+    public ResponseEntity&lt;Karteikarte&gt; updateKarteikarte(@PathVariable String karteikarteId, @RequestBody Karteikarte karteikarte) {
+<span class="fc" id="L42">        Karteikarte updatedKarteikarte = karteikarteService.updateKarteikarte(karteikarteId, karteikarte);</span>
+<span class="fc" id="L43">        return ResponseEntity.ok(updatedKarteikarte);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
