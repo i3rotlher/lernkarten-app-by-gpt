@@ -20,5 +20,10 @@ public class KarteikarteService {
     public List<Karteikarte> getKarteikartenByKarteibox(String karteiboxId) {
         return karteikarteRepository.findAllByKarteiboxId(karteiboxId);
     }
-    // Weitere Methoden ...
+    
+    public void deleteKarteikartenByKarteibox(String karteiboxId) {
+        List<Karteikarte> karteikarten = karteikarteRepository.findAllByKarteiboxId(karteiboxId);
+        karteikarteRepository.deleteAll(karteikarten);
+    }
+
 }
