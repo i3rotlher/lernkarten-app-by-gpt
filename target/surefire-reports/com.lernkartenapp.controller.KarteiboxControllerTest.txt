@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.lernkartenapp.controller.KarteiboxControllerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.003 s <<< FAILURE! - in com.lernkartenapp.controller.KarteiboxControllerTest
+testCreateKarteibox  Time elapsed: 0.071 s  <<< ERROR!
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.SecurityException: Nicht autorisiert, diese Karteibox zu erstellen
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testCreateKarteibox(KarteiboxControllerTest.java:64)
+Caused by: java.lang.SecurityException: Nicht autorisiert, diese Karteibox zu erstellen
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testCreateKarteibox(KarteiboxControllerTest.java:64)
+
+testGetKarteiboxenByUser  Time elapsed: 0.015 s  <<< ERROR!
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because "authentication" is null
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testGetKarteiboxenByUser(KarteiboxControllerTest.java:80)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because "authentication" is null
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testGetKarteiboxenByUser(KarteiboxControllerTest.java:80)
+
