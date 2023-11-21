@@ -36,4 +36,10 @@ public class KarteikarteController {
         Karteikarte updatedKarteikarte = karteikarteService.markCardAsKnown(karteikarteId);
         return ResponseEntity.ok(updatedKarteikarte);
     }
+
+    @PutMapping("/{karteikarteId}")
+    public ResponseEntity<Karteikarte> updateKarteikarte(@PathVariable String karteikarteId, @RequestBody Karteikarte karteikarte) {
+        Karteikarte updatedKarteikarte = karteikarteService.updateKarteikarte(karteikarteId, karteikarte);
+        return ResponseEntity.ok(updatedKarteikarte);
+    }
 }

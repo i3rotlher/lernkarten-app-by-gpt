@@ -43,4 +43,15 @@ public class KarteikarteService {
         }
     }
 
+    public Karteikarte updateKarteikarte(String karteikarteId, Karteikarte updatedKarteikarte) {
+        return karteikarteRepository.findById(karteikarteId)
+            .map(karteikarte -> {
+                karteikarte.setFrage(updatedKarteikarte.getFrage());
+                karteikarte.setAntwort(updatedKarteikarte.getAntwort());
+                // Setzen Sie hier weitere Felder, die aktualisiert werden sollen
+                return karteikarteRepository.save(karteikarte);
+            })
+            .orElseThrow(() -> new NoSuchElementException("Karteikarte mit der ID " + karteikarteId + " nicht gefunden"));
+    } 
+
 }
