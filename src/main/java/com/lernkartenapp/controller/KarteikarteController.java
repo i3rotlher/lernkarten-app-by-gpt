@@ -1,6 +1,7 @@
 package com.lernkartenapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.lernkartenapp.model.Karteikarte;
@@ -23,5 +24,10 @@ public class KarteikarteController {
     public List<Karteikarte> getKarteikartenByKarteibox(@PathVariable String karteiboxId) {
         return karteikarteService.getKarteikartenByKarteibox(karteiboxId);
     }
-    // Weitere Endpunkte ...
+    
+    @DeleteMapping("/{karteikarteId}")
+    public ResponseEntity<Void> deleteKarteikarte(@PathVariable String karteikarteId) {
+        karteikarteService.deleteKarteikarte(karteikarteId);
+        return ResponseEntity.ok().build();
+    }
 }

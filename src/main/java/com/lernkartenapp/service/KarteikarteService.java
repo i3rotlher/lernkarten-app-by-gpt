@@ -26,4 +26,8 @@ public class KarteikarteService {
         karteikarteRepository.deleteAll(karteikarten);
     }
 
+    public void deleteKarteikarte(String karteikarteId) {
+        karteikarteRepository.deleteById(karteikarteId);
+    }
+
 }

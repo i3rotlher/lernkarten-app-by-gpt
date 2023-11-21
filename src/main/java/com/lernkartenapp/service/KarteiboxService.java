@@ -30,4 +30,9 @@ public class KarteiboxService {
             karteiboxRepository.delete(karteibox);
         }
     }
+
+    public void deleteKarteibox(String karteiboxId) {
+        karteikarteService.deleteKarteikartenByKarteibox(karteiboxId);
+        karteiboxRepository.deleteById(karteiboxId);
+    }
 }
