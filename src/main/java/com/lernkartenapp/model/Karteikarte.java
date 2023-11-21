@@ -10,6 +10,7 @@ public class Karteikarte {
     private String frage;
     private String antwort;
     private String karteiboxId; // Verknüpfung zur Karteibox
+    private boolean known = false;
 
     // Konstruktoren
     public Karteikarte() {}
@@ -45,5 +46,13 @@ public class Karteikarte {
 
     public void setKarteiboxId(String karteiboxId) {
         this.karteiboxId = karteiboxId;
+    }
+
+    public boolean getKnown() {
+        return known;
+    }
+
+    public void setKnown(boolean known) {
+        this.known = known;
     }
 }

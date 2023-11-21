@@ -30,4 +30,10 @@ public class KarteikarteController {
         karteikarteService.deleteKarteikarte(karteikarteId);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/{karteikarteId}/markAsKnown")
+    public ResponseEntity<Karteikarte> markCardAsKnown(@PathVariable String karteikarteId) {
+        Karteikarte updatedKarteikarte = karteikarteService.markCardAsKnown(karteikarteId);
+        return ResponseEntity.ok(updatedKarteikarte);
+    }
 }

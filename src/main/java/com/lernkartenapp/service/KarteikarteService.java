@@ -7,6 +7,8 @@ import com.lernkartenapp.model.Karteikarte;
 import com.lernkartenapp.repository.KarteikarteRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class KarteikarteService {
@@ -28,6 +30,17 @@ public class KarteikarteService {
 
     public void deleteKarteikarte(String karteikarteId) {
         karteikarteRepository.deleteById(karteikarteId);
+    }
+
+    public Karteikarte markCardAsKnown(String karteikarteId) {
+        Optional<Karteikarte> karteikarteOptional = karteikarteRepository.findById(karteikarteId);
+        if (karteikarteOptional.isPresent()) {
+            Karteikarte karteikarte = karteikarteOptional.get();
+            karteikarte.setKnown(true);
+            return karteikarteRepository.save(karteikarte);
+        } else {
+            throw new NoSuchElementException("Karteikarte mit der ID " + karteikarteId + " nicht gefunden");
+        }
     }
 
 }

@@ -49,4 +49,10 @@ public class KarteiboxController {
         karteiboxService.deleteKarteibox(karteiboxId);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{karteiboxId}/progress")
+    public ResponseEntity<Double> getProgress(@PathVariable String karteiboxId) {
+        double progress = karteiboxService.calculateProgress(karteiboxId);
+        return ResponseEntity.ok(progress);
+    }
 }
