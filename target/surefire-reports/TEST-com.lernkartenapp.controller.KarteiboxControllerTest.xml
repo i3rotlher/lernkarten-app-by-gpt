@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.lernkartenapp.service.KarteiboxServiceTest" time="0.123" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.lernkartenapp.controller.KarteiboxControllerTest" time="2.07" tests="4" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,11 +60,35 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testCalculateProgressNoCards" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.097"/>
-  <testcase name="testDeleteKarteiboxenByUser" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.011"/>
-  <testcase name="testDeleteKarteibox" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.003"/>
-  <testcase name="testDeleteKarteiboxNotFound" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.003"/>
-  <testcase name="testCalculateProgress" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.002"/>
-  <testcase name="testCreateKarteibox" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.003"/>
-  <testcase name="testGetKarteiboxenByUser" classname="com.lernkartenapp.service.KarteiboxServiceTest" time="0.002"/>
+  <testcase name="testDeleteKarteibox" classname="com.lernkartenapp.controller.KarteiboxControllerTest" time="1.8"/>
+  <testcase name="testGetProgress" classname="com.lernkartenapp.controller.KarteiboxControllerTest" time="0.103"/>
+  <testcase name="testCreateKarteibox" classname="com.lernkartenapp.controller.KarteiboxControllerTest" time="0.114"/>
+  <testcase name="testGetKarteiboxenByUser" classname="com.lernkartenapp.controller.KarteiboxControllerTest" time="0.029">
+    <error message="Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.Authentication.getName()&quot; because &quot;authentication&quot; is null" type="org.springframework.web.util.NestedServletException">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because "authentication" is null
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testGetKarteiboxenByUser(KarteiboxControllerTest.java:80)
+Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because "authentication" is null
+	at com.lernkartenapp.controller.KarteiboxControllerTest.testGetKarteiboxenByUser(KarteiboxControllerTest.java:80)
+</error>
+    <system-out><![CDATA[14:30:43.893 [main] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.l.c.KarteiboxController:
+	{GET [/karteiboxen/{karteiboxId}/progress]}: getProgress(String)
+	{POST [/karteiboxen/]}: createKarteibox(Karteibox)
+	{DELETE [/karteiboxen/{karteiboxId}]}: deleteKarteibox(String)
+	{GET [/karteiboxen/user/{userId}]}: getKarteiboxenByUser(String,Authentication)
+14:30:43.895 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+14:30:43.898 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+14:30:43.900 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+14:30:43.901 [main] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+14:30:43.901 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+14:30:43.901 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+14:30:43.901 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+14:30:43.901 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1238a074
+14:30:43.901 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@35b58254
+14:30:43.901 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+14:30:43.901 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+14:30:43.903 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/karteiboxen/user/testUser", parameters={}
+14:30:43.903 [main] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.lernkartenapp.controller.KarteiboxController#getKarteiboxenByUser(String, Authentication)
+14:30:43.910 [main] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Failed to complete request: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.Authentication.getName()" because "authentication" is null
+]]></system-out>
+  </testcase>
 </testsuite>
