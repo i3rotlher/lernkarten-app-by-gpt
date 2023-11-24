@@ -12,5 +12,6 @@ com\lernkartenapp\model\Karteibox.class
 com\lernkartenapp\security\JwtRequestFilter.class
 com\lernkartenapp\repository\UserRepository.class
 com\lernkartenapp\service\UserService.class
+com\lernkartenapp\config\WebConfig.class
 com\lernkartenapp\service\KarteikarteService.class
 com\lernkartenapp\model\User.class
