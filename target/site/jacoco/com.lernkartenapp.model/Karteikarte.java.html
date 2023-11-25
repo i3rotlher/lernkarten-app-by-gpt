@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Karteikarte.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">karteikarten-app</a> &gt; <a href="index.source.html" class="el_package">com.lernkartenapp.model</a> &gt; <span class="el_source">Karteikarte.java</span></div><h1>Karteikarte.java</h1><pre class="source lang-java linenums">package com.lernkartenapp.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Karteikarte {
+    @Id
+    private String id;
+    private String frage;
+    private String antwort;
+    private String karteiboxId; // Verknüpfung zur Karteibox
+<span class="fc" id="L13">    private boolean known = false;</span>
+
+    // Konstruktoren
+<span class="fc" id="L16">    public Karteikarte() {}</span>
+
+    // Getter und Setter
+    public String getId() {
+<span class="fc" id="L20">        return id;</span>
+    }
+
+    public void setId(String id) {
+<span class="fc" id="L24">        this.id = id;</span>
+<span class="fc" id="L25">    }</span>
+
+    public String getFrage() {
+<span class="fc" id="L28">        return frage;</span>
+    }
+
+    public void setFrage(String frage) {
+<span class="fc" id="L32">        this.frage = frage;</span>
+<span class="fc" id="L33">    }</span>
+
+    public String getAntwort() {
+<span class="fc" id="L36">        return antwort;</span>
+    }
+
+    public void setAntwort(String antwort) {
+<span class="fc" id="L40">        this.antwort = antwort;</span>
+<span class="fc" id="L41">    }</span>
+
+    public String getKarteiboxId() {
+<span class="fc" id="L44">        return karteiboxId;</span>
+    }
+
+    public void setKarteiboxId(String karteiboxId) {
+<span class="nc" id="L48">        this.karteiboxId = karteiboxId;</span>
+<span class="nc" id="L49">    }</span>
+
+    public boolean getKnown() {
+<span class="fc" id="L52">        return known;</span>
+    }
+
+    public void setKnown(boolean known) {
+<span class="fc" id="L56">        this.known = known;</span>
+<span class="fc" id="L57">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

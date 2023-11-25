@@ -1,0 +1,6 @@
+com\lernkartenapp\controller\KarteiboxControllerTest.class
+com\lernkartenapp\service\KarteiboxServiceTest.class
+com\lernkartenapp\service\KarteikarteServiceTest.class
+com\lernkartenapp\controller\KarteikarteControllerTest.class
+com\lernkartenapp\controller\UserControllerTest.class
+com\lernkartenapp\service\UserServiceTest.class

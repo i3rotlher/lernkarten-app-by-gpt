@@ -1,0 +1,17 @@
+com\lernkartenapp\controller\UserController.class
+com\lernkartenapp\controller\KarteiboxController.class
+com\lernkartenapp\controller\KarteikarteController.class
+com\lernkartenapp\repository\KarteikarteRepository.class
+com\lernkartenapp\repository\KarteiboxRepository.class
+com\lernkartenapp\config\SecurityConfig.class
+com\lernkartenapp\KarteikartenAppApplication.class
+com\lernkartenapp\model\Karteikarte.class
+com\lernkartenapp\util\JwtUtil.class
+com\lernkartenapp\service\KarteiboxService.class
+com\lernkartenapp\model\Karteibox.class
+com\lernkartenapp\security\JwtRequestFilter.class
+com\lernkartenapp\repository\UserRepository.class
+com\lernkartenapp\service\UserService.class
+com\lernkartenapp\config\WebConfig.class
+com\lernkartenapp\service\KarteikarteService.class
+com\lernkartenapp\model\User.class
