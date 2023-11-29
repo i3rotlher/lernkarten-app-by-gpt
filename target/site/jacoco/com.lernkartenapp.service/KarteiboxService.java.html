@@ -32,7 +32,7 @@ import java.util.List;
 <span class="fc bfc" id="L32" title="All 2 branches covered.">        for (Karteibox karteibox : karteiboxen) {</span>
 <span class="fc" id="L33">            karteikarteService.deleteKarteikartenByKarteibox(karteibox.getId()); // Lösche zuerst die Karteikarten der Karteibox</span>
 <span class="fc" id="L34">            karteiboxRepository.delete(karteibox);</span>
-<span class="fc" id="L35">        }</span>
+        }
 <span class="fc" id="L36">    }</span>
 
     public void deleteKarteibox(String karteiboxId) {

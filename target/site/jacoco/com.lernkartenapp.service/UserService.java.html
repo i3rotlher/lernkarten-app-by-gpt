@@ -48,7 +48,7 @@ import java.util.Optional;
 <span class="fc bfc" id="L48" title="All 2 branches covered.">        if (user.isPresent()) {</span>
 <span class="fc" id="L49">            karteiboxService.deleteKarteiboxenByUser(id); // Lösche zuerst alle Karteiboxen und Karteikarten des Benutzers</span>
 <span class="fc" id="L50">            userRepository.deleteById(id);</span>
-        } else {
+<span class="fc" id="L51">        } else {</span>
 <span class="fc" id="L52">            throw new NoSuchElementException(&quot;Benutzer mit der ID &quot; + id + &quot; nicht gefunden&quot;);</span>
         }
 <span class="fc" id="L54">    }</span>

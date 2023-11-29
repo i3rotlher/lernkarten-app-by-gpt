@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-<span class="nc" id="L19">public class JwtRequestFilter extends OncePerRequestFilter {</span>
+<span class="fc" id="L19">public class JwtRequestFilter extends OncePerRequestFilter {</span>
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
 
 <span class="nc bnc" id="L37" title="All 4 branches missed.">        if (username != null &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null) {</span>
 <span class="nc" id="L38">            UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(</span>
-                    username, null, new ArrayList&lt;&gt;());
+<span class="nc" id="L39">                    username, null, new ArrayList&lt;&gt;());</span>
 
 <span class="nc" id="L41">            usernamePasswordAuthenticationToken</span>
 <span class="nc" id="L42">                    .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));</span>
